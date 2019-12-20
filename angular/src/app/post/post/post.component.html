@@ -1,0 +1,10 @@
+<app-menu></app-menu>
+
+<cdk-virtual-scroll-viewport class="post-list" itemSize="100">
+    <ng-container *cdkVirtualFor="let item of (posts$ | async)">
+        <div class="container mt-30">
+            <a><h4 class="post-href" routerLink="/post/{{item.id}}">{{item.title}}</h4></a>
+            <div>{{item.body}}</div>
+        </div>
+    </ng-container>
+</cdk-virtual-scroll-viewport>

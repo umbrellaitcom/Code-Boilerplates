@@ -1,0 +1,12 @@
+<app-menu></app-menu>
+
+<ng-container *ngIf="infinite$ | async as posts">
+    <cdk-virtual-scroll-viewport itemSize="100" (scrolledIndexChange)="handleVirtualScrolledIndexChange($event)" class="post-list">
+        <div *cdkVirtualFor="let post of posts;">
+            <div class="container mt-30">
+                <a><h4 class="post-href" routerLink="/post/{{post.id}}">{{post.title}}</h4></a>
+                <div>{{ post.body }}</div>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</ng-container>

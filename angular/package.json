@@ -1,0 +1,49 @@
+{
+  "name": "angular-boilerplate",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.21",
+    "@angular/cli": "^8.2.1",
+    "@angular/compiler-cli": "^8.2.2",
+    "@types/node": "^12.11.7",
+    "codelyzer": "^5.1.0",
+    "less-loader": "^5.0.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "~3.4.5"
+  },
+  "dependencies": {
+    "@angular/animations": "^8.2.2",
+    "@angular/cdk": "^8.1.2",
+    "@angular/common": "^8.2.2",
+    "@angular/compiler": "^8.2.2",
+    "@angular/core": "^8.2.2",
+    "@angular/forms": "^8.2.2",
+    "@angular/material": "^8.1.2",
+    "@angular/platform-browser": "^8.2.2",
+    "@angular/platform-browser-dynamic": "^8.2.2",
+    "@angular/router": "^8.2.2",
+    "bootstrap-less": "^3.3.8",
+    "core-js": "^2.5.4",
+    "rxjs": "^6.5.2",
+    "zone.js": "^0.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint --fix ",
+      "git add"
+    ]
+  }
+}
