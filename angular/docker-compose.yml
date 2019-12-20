@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  angular-boilerplate:
+    build:
+      context: .
+      dockerfile: images/Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - ${WEB_PORT}:4200
+    env_file: .env

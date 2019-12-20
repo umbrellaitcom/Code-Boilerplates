@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+    - "./data/mysql/:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+    - ${MYSQL_EX_PORT}:3306
+  php:
+    build:
+      context: ./
+      dockerfile: images/php-fpm/Dockerfile
+    restart: always
+    volumes:
+    - ${APP_PATH}:/var/www/yii2-boilerplate
+    - ${SSH_PATH}:/root/.ssh
+    - ./images/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/docker-php-99-overrides.ini
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MODE: ${MODE}
+      SERVER_NAME: ${SERVER_NAME}
+      WEBSERVER_PORT: ${WEBSERVER_PORT}
+      PHPMYADMIN_PORT: ${PHPMYADMIN_PORT}
+  nginx:
+    image: nginx
+    depends_on:
+    - php
+    restart: always
+    ports:
+    - ${WEBSERVER_PORT}:80
+    volumes:
+    - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    - ./config/nginx/conf.d/yii2-boilerplate.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+    - php
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+    - PMA_ARBITRARY=1
+    restart: always
+    ports:
+    - ${PHPMYADMIN_PORT}:80
+    depends_on:
+    - db

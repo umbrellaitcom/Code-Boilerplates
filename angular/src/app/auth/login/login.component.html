@@ -1,0 +1,38 @@
+<div class="layout-wrapper">
+    <form class="form-horizontal container-item" role="form" [formGroup]="loginForm">
+        <mat-grid-list cols="2" rowHeight="20px" gutterSize="3px" class="middle-column">
+
+            <mat-grid-tile colspan="2" rowspan="2" class="mt-20">
+                <div class="subtitle text-center">Sign In</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="4" class="mt-20">
+                <mat-form-field class="input-full" appearance="outline">
+                    <mat-label class="fs-12">Enter your email address</mat-label>
+                    <input matInput type="email" name="email" formControlName="email"/>
+                    <mat-error *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.errors.required">Email is required</mat-error>
+                    <mat-error *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.errors.pattern">Email is not valid. Example: user@mail.com</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="4" class="mt-10">
+                <mat-form-field class="input-full" appearance="outline">
+                    <mat-label class="fs-12">Enter your password</mat-label>
+                    <input matInput type="password" name="password" formControlName="password"/>
+                    <mat-error *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.errors.required">Field is required</mat-error>
+                    <mat-error *ngIf="loginForm.errors">name is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="4" class="mt-10">
+                <button mat-flat-button (click)="login()" class="btn-full btn-blue">Sign In</button>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="4">
+                <app-alert class="notification"></app-alert>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </form>
+
+</div>
