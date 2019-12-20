@@ -1,0 +1,10 @@
+{
+  "extends": "@umbrellait/tsconfig-esnext",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "typeRoots": ["node_modules/@types", "src/types"]
+  }
+}
