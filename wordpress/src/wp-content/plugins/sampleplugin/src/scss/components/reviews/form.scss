@@ -1,0 +1,92 @@
+.reviews-form {
+
+	& &__label {
+		font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+		font-weight: 600;
+		line-height: 1;
+		margin-bottom: -8px;
+		font-size: 16px;
+		width: 100%;
+		display: block;
+	}
+
+	& &__input,
+	& &__textarea {
+		font-weight: 600;
+		margin: 16px 0;
+		padding: 6px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #f6f7f9;
+		color: #748194;
+		font-size: 14px;
+		border: 0 !important;
+		width: 100%;
+	}
+
+	& &__input {
+		height: 35px;
+	}
+
+	& &__textarea {
+		height: 200px;
+		width: 100%;
+		resize: none;
+	}
+
+	& &__button {
+		font-weight: 600;
+		min-width: 230px;
+		margin: 16px 0;
+		height: 45px;
+		padding: 6px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		color: #fff;
+		font-size: 14px;
+		background: #cd2653;
+
+		&:hover {
+			text-decoration: none;
+			background: #ee9ba3;
+		}
+
+		&.disabled {
+			background: #748194;
+			color: #444;
+			cursor: default;
+		}
+	}
+
+	& &__messages {
+		font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+		padding: 6px 15px;
+		border-radius: 5px;
+		font-weight: 600;
+		font-size: 14px;
+		color: #fff;
+
+		&.error {
+			background: #cf2e2e;
+		}
+
+		&.success {
+			background: #00d084;
+		}
+	}
+
+	& &__footer {
+		display: flex;
+		align-items: center;
+
+		.loading {
+			margin-left: 16px;
+			width: 40px;
+			height: 40px;
+			background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: none; display: block; shape-rendering: auto;' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Cpath d='M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50' fill='%23cd2653' stroke='none' transform='rotate(207.952 50 51)'%3E%3CanimateTransform attributeName='transform' type='rotate' dur='1s' repeatCount='indefinite' keyTimes='0;1' values='0 50 51;360 50 51'%3E%3C/animateTransform%3E%3C/path%3E%3C/svg%3E");
+		}
+	}
+
+}

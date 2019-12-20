@@ -1,0 +1,16 @@
+{
+	"name": "uit/wordpress-sample",
+	"description": "Wordpress Sample UIT",
+	"type": "project",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Umbrella UI",
+			"email": "hello@umbrellait.com"
+		}
+	],
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+		"automattic/vipwpcs": "^2.0"
+	}
+}

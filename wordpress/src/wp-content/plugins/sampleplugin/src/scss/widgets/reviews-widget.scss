@@ -1,0 +1,33 @@
+.reviews-widget {
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		padding: 16px 8px;
+		background-color: #fff;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+		-moz-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+		-webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+		&__title {
+			display: block;
+			font-weight: 600;
+			font-size: 20px;
+			margin-bottom: 8px;
+			padding-bottom: 8px;
+			border-bottom: 2px solid #ccc;
+		}
+
+		&__text {
+			color: #444;
+			font-size: 16px;
+		}
+	}
+}

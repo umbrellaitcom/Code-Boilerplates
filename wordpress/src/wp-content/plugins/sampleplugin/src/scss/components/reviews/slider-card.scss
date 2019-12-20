@@ -1,0 +1,18 @@
+.reviews-slider__card {
+	background: #fff;
+	border-radius: 5px;
+	padding: 8px;
+	height: 100%;
+	font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+
+	&__wrapper {
+		height: 100%;
+		padding: 8px;
+	}
+
+	&__title {
+		font-size: 24px;
+		margin-bottom: 16px;
+		font-weight: 600;
+	}
+}

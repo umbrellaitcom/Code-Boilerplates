@@ -1,0 +1,94 @@
+{
+  "name": "unspot-admin",
+  "version": "0.0.1",
+  "private": true,
+  "description": "React Demo",
+  "scripts": {
+    "build": "yarn webpack",
+    "lint:eslint": "eslint --ignore-path .gitignore",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --fix",
+    "lint:stylelint:fix": "stylelint --fix",
+    "prettier:write": "prettier --write",
+    "start": "yarn webpack:server",
+    "webpack": "webpack",
+    "webpack:server": "webpack-dev-server"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.json": [
+      "yarn run prettier:write",
+      "git add --force"
+    ],
+    "*.scss": [
+      "yarn lint:stylelint:fix",
+      "git add --force"
+    ],
+    "*.{ts,tsx,js,jsx}": [
+      "yarn run lint:eslint:fix",
+      "git add --force"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
+    "axios": "0.19.0",
+    "clsx": "^1.0.4",
+    "connected-react-router": "^6.5.2",
+    "dotenv": "^8.2.0",
+    "formik": "2.0.4",
+    "formik-material-ui": "^1.0.0",
+    "history": "4.10.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "4.17.15",
+    "memoize-one": "^5.1.1",
+    "notistack": "^0.9.6",
+    "qs": "6.9.1",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "5.1.2",
+    "redux": "^4.0.4",
+    "redux-act": "^1.7.7",
+    "redux-saga": "^1.1.3",
+    "redux-saga-requests": "^0.26.1",
+    "redux-saga-requests-axios": "^0.7.7",
+    "redux-saga-requests-mock": "^0.1.7",
+    "redux-saga-requests-react": "^0.2.1",
+    "reselect": "^4.0.0",
+    "shortid": "^2.2.15",
+    "url-join": "^4.0.1",
+    "yup": "0.27.0"
+  },
+  "devDependencies": {
+    "@types/gapi": "^0.0.39",
+    "@types/gapi.auth2": "^0.0.50",
+    "@types/jwt-decode": "2.2.1",
+    "@types/lodash": "4.14.146",
+    "@types/qs": "6.9.0",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "5.1.2",
+    "@types/shortid": "^0.0.29",
+    "@types/url-join": "^4.0.0",
+    "@types/webpack-env": "^1.14.1",
+    "@types/yup": "0.26.24",
+    "@umbrellait/eslint-config-react": "^4.4.0",
+    "@umbrellait/prettier-config": "^4.1.0",
+    "@umbrellait/stylelint-config": "^4.1.0",
+    "@umbrellait/tsconfig-esnext": "^4.1.0",
+    "@umbrellait/webpack-react": "^4.4.3",
+    "envalid": "5.0.0",
+    "eslint": "^6.6.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "1.19.1",
+    "stylelint": "11.1.1",
+    "typescript": "^3.7.2"
+  }
+}

@@ -1,0 +1,53 @@
+version: '3'
+services:
+
+  #PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    image: digitalocean.com/php
+    container_name: uit_code_sample_laravel_app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www/html
+    environment:
+      DB_HOST: database
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - database
+
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: uit_code_sample_laravel_webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - ${WEB_SRV_PORT}:80
+      - ${WEB_SRV_SSL_PORT}:443
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+
+  #MySQL Service
+  database:
+    image: mysql:5.7.22
+    container_name: uit_code_sample_laravel_db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - ${DB_PORT}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    volumes:
+      - dbdata:/var/lib/mysql
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local
