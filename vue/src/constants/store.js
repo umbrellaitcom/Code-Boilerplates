@@ -1,0 +1,2 @@
+export const LOCAL_STORAGE_NAMESPACE = 'UIT-Food';
+export const JWT_TOKEN_LS_KEY = `${LOCAL_STORAGE_NAMESPACE}:JWTToken`;

@@ -1,0 +1,90 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: UIT Food Order
+            description: App to order food to the office
+            version: 1.0.0
+
+        definitions:
+            forbidden:
+                type: object
+                properties:
+                    meta:
+                        type: object
+                        properties:
+                            errors:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        property_path:
+                                            type: string
+                                            example: "authentication"
+                                        message:
+                                            type: string
+                                            example: "Token was not provided"
+                            time:
+                                type: number
+                                example: 1587047743
+        paths:
+            /login:
+                post:
+                    tags:
+                        - Auth
+                    description: Get JWT token
+                    produces:
+                        - application/json
+                    parameters:
+                        - name: body
+                          description: Credentials
+                          in: body
+                          required: true
+                          schema:
+                              type: object
+                              properties:
+                                  username:
+                                      type: string
+                                      example: "johndoe"
+                                  password:
+                                      type: string
+                                      example: "testpassword"
+                    responses:
+                        '200':
+                            description: Authentication successful
+                            schema:
+                                type: object
+                                properties:
+                                    response:
+                                        type: object
+                                        properties:
+                                            token:
+                                                type: string
+                                                example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODcwNDkwNzcsImV4cCI6MTU4NzA1MjY3Nywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obmRvZSJ9.g3WlnrXqR4xJF9URUcDT5W-3bXNKTdZyUKIF5NrBh0ejCoXgT4qU1vDn8KFiwHRJTNlrvdzvyVhFEW_jmldhReDV_62vwQ7UpTZGeo-kbbfNhuu-tjJm4nZSqQtlmxywoDVC7yOI9pFkVKs6jCv01KKZi1y8NmvePRQgHNlP-hCVB2OSUdZZRP5yFfx33bwAklRP_A6UXg_K14_vSArh6dq442XnmgyumBNsb70aX8MlZ0wMyG62fReouT9z27YWKSu5K-DKuT0h4Zpz5hreC0-sa-oeiHQxpLxgef4IoD-FRWZZehSNFCbzhFL80SeMQsik4ln_5jvmL_3MIh0M_YBbTIcYFghoBpFCVSc6luaplx5swrzbSAf20RqkNfwasKmgh7ZxJT_o8eM2Yz1P20Juobnjwr9116akamBb4Of4KKpDxlq3lM-RkUpZAnlOvWyw2bWbg0PNMGjgSQanrfY9y8csERlK3OpdiJph3rXewq4lR-7q8QPVc70H2FJMKd5hEDpMn8534EfnrovZeix-YHni8DFj0fexMcKWZUHYMBR5q-sCpMKdVI961CWnFKRztwO4kTq4M2rhccIobGYb7js_OUosbAzU1nu8WXDj3Heg7udTr76fO-hWKBa9Dr48suyPkMW36UXovKFb-u9nWtQWX-LQQdeCdn5K_k0"
+                                    meta:
+                                        type: object
+                                        properties:
+                                            time:
+                                                type: number
+                                                example: 1587047743
+                        '401':
+                            description: Authentication failed
+                            schema:
+                                type: object
+                                properties:
+                                    meta:
+                                        type: object
+                                        properties:
+                                            errors:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        property_path:
+                                                            type: string
+                                                            example: "authentication"
+                                                        message:
+                                                            type: string
+                                                            example: "Bad credentials, please verify that your username/password are correctly set"
+                                            time:
+                                                type: number
+                                                example: 1587047743

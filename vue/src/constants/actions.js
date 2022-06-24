@@ -1,0 +1,12 @@
+export const USER = {
+	LOGIN: 'LOGIN',
+	MOCK_LOGIN: 'MOCK_LOGIN',
+	LOGOUT: 'LOGOUT',
+	MOCK_LOGOUT: 'MOCK_LOGOUT',
+	REGISTER: 'REGISTER',
+};
+
+export const ORDER = {
+	GET_MENU: 'GET_MENU',
+	ORDER: 'ORDER'
+}

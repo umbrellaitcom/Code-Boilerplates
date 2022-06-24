@@ -1,0 +1,9 @@
+/.idea
+/config/jwt/*.pem
+/docker/logs
+/docker/.data
+/docker/nginx/symfony.conf
+/var
+/vendor
+/public/bundles/
+.env
