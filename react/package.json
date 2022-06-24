@@ -43,7 +43,7 @@
     "formik-material-ui": "^1.0.0",
     "history": "4.10.1",
     "jwt-decode": "^2.2.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "memoize-one": "^5.1.1",
     "notistack": "^0.9.6",
     "qs": "6.9.1",
