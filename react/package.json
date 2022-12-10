@@ -46,7 +46,7 @@
     "lodash": "4.17.15",
     "memoize-one": "^5.1.1",
     "notistack": "^0.9.6",
-    "qs": "6.9.1",
+    "qs": "6.9.7",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "^7.1.3",
